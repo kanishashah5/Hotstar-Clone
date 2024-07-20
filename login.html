@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Disney+ Clone</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Your JavaScript code here
+        const loginText = document.querySelector(".title-text .login");
+        const loginForm = document.querySelector("form.login");
+        const loginBtn = document.querySelector("label.login");
+        const signupBtn = document.querySelector("label.signup");
+        const signupLink = document.querySelector("form .signup-link a");
+
+        signupBtn.onclick = () => {
+          loginForm.style.marginLeft = "-50%";
+          loginText.style.marginLeft = "-50%";
+        };
+
+        loginBtn.onclick = () => {
+          loginForm.style.marginLeft = "0%";
+          loginText.style.marginLeft = "0%";
+        };
+
+        signupLink.onclick = () => {
+          signupBtn.click();
+          return false;
+        };
+      });
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      html,
+      body {
+        display: grid;
+        height: 100%;
+        width: 100%;
+        place-items: center;
+        background: #0c111b;
+      }
+
+      ::selection {
+        background: #1a75ff;
+        color: #fff;
+      }
+
+      .main-div{
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+      }
+
+      .wrapper {
+        overflow: hidden;
+        max-width: 60vw;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .wrapper .title-text {
+        display: flex;
+        width: 200%;
+      }
+
+      .wrapper .title {
+        width: 50%;
+        font-size: 35px;
+        font-weight: 600;
+        text-align: center;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .wrapper .slide-controls {
+        position: relative;
+        display: flex;
+        height: 50px;
+        width: 100%;
+        overflow: hidden;
+        margin: 30px 0 10px 0;
+        justify-content: space-between;
+        border: 1px solid lightgrey;
+        border-radius: 15px;
+      }
+
+      .slide-controls .slide {
+        height: 100%;
+        width: 100%;
+        color: #fff;
+        font-size: 18px;
+        font-weight: 500;
+        text-align: center;
+        line-height: 48px;
+        cursor: pointer;
+        z-index: 1;
+        transition: all 0.6s ease;
+      }
+
+      .slide-controls label.signup {
+        color: #000;
+      }
+
+      .slide-controls .slider-tab {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        left: 0;
+        z-index: 0;
+        border-radius: 15px;
+        background: -webkit-linear-gradient(
+          left,
+          #003366,
+          #004080,
+          #0059b3,
+          #0073e6
+        );
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      input[type="radio"] {
+        display: none;
+      }
+
+      #signup:checked ~ .slider-tab {
+        left: 50%;
+      }
+
+      #signup:checked ~ label.signup {
+        color: #fff;
+        cursor: default;
+        user-select: none;
+      }
+
+      #signup:checked ~ label.login {
+        color: #000;
+      }
+
+      #login:checked ~ label.signup {
+        color: #000;
+      }
+
+      #login:checked ~ label.login {
+        cursor: default;
+        user-select: none;
+      }
+
+      .wrapper .form-container {
+        width: 100%;
+        overflow: hidden;
+      }
+
+      .form-container .form-inner {
+        display: flex;
+        width: 200%;
+      }
+
+      .form-container .form-inner form {
+        width: 50%;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      }
+
+      .form-inner form .field {
+        height: 50px;
+        width: 100%;
+        margin-top: 20px;
+      }
+
+      .form-inner form .field input {
+        height: 100%;
+        width: 100%;
+        outline: none;
+        padding-left: 15px;
+        border-radius: 15px;
+        border: 1px solid lightgrey;
+        border-bottom-width: 2px;
+        font-size: 17px;
+        transition: all 0.3s ease;
+      }
+
+      .form-inner form .field input:focus {
+        border-color: #1a75ff;
+        /* box-shadow: inset 0 0 3px #fb6aae; */
+      }
+
+      .form-inner form .field input::placeholder {
+        color: #999;
+        transition: all 0.3s ease;
+      }
+
+      form .field input:focus::placeholder {
+        color: #1a75ff;
+      }
+
+      .form-inner form .pass-link {
+        margin-top: 5px;
+      }
+
+      .form-inner form .signup-link {
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .form-inner form .pass-link a,
+      .form-inner form .signup-link a {
+        color: #1a75ff;
+        text-decoration: none;
+      }
+
+      .form-inner form .pass-link a:hover,
+      .form-inner form .signup-link a:hover {
+        text-decoration: underline;
+      }
+
+      form .btn {
+        height: 50px;
+        width: 100%;
+        border-radius: 15px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      form .btn .btn-layer {
+        height: 100%;
+        width: 300%;
+        position: absolute;
+        left: -100%;
+        background: -webkit-linear-gradient(
+          right,
+          #003366,
+          #004080,
+          #0059b3,
+          #0073e6
+        );
+        border-radius: 15px;
+        transition: all 0.4s ease;
+      }
+
+      form .btn:hover .btn-layer {
+        left: 0;
+      }
+
+      form .btn input[type="submit"] {
+        height: 100%;
+        width: 100%;
+        z-index: 1;
+        position: relative;
+        background: none;
+        border: none;
+        color: #fff;
+        padding-left: 0;
+        border-radius: 15px;
+        font-size: 20px;
+        font-weight: 500;
+        cursor: pointer;
+      }
+
+.navbar {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 0 4%;
+  background: #0c111b;
+  z-index: 9;
+  display: flex;
+  /*justify-content: center;*/
+  align-items: center;
+}
+
+.brand-logo {
+  height: 70px;
+}
+
+.nav-links {
+  margin-top: 10px;
+  display: flex;
+  padding: 20px;
+    width: 600px;
+    justify-content: space-evenly;
+  list-style-type: none;
+  color: #fff;
+}
+
+.nav-items a {
+  text-decoration: none;
+  margin-left: 20px;
+  font-size: 20px;
+  text-transform: capitalize;
+  color: #fff;
+  opacity: 0.9;
+}
+
+.right-container {
+  display: block;
+  margin-left: auto;
+}
+
+.search-box {
+  border: none;
+  border-bottom: 1px solid #aaa;
+  background: transparent;
+  outline: none;
+  height: 30px;
+  color: #fff;
+  width: 250px;
+  text-transform: capitalize;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.search-box:focus {
+  width: 400px;
+  border-color: #1f80e0;
+}
+
+.sub-btn {
+  background: #1f80e0;
+  height: 30px;
+  padding: 0 20px;
+  color: #fff;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  margin: 0 10px;
+}
+
+.login-link {
+  color: #fff;
+  opacity: 0.9;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar {
+    height: auto;
+  }
+
+  .navbar .nav-links {
+    display: none;
+  }
+
+  .navbar .right-container {
+    margin-left: 0;
+  }
+
+  .navbar .search-box {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .navbar .sub-btn {
+    margin-top: 10px;
+  }
+
+  .navbar .dropdown {
+    float: none;
+  }
+
+  .navbar .dropdown-content {
+    position: static;
+    display: none;
+    overflow: visible;
+    background-color: #0c111b;
+    width: 100%;
+  }
+
+  .navbar .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .navbar .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
+
+  .navbar .dropdown-content a {
+    color: #fff;
+    text-align: left;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    border-bottom: 1px solid #aaa;
+  }
+
+  .navbar .dropdown-content a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+}
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style: none;
+}
+
+.footer {
+
+  background-color: #0c111b;
+  padding: 70px 0;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 300;
+  color: #bbbbbb;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+.footer-text {
+  margin-top: 20px;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+/*responsive*/
+@media(max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+
+@media(max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
+
+.footer-col ul li a {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 6px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+body {
+  -ms-overflow-style:none;
+}
+
+.footer-col ul li a:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 51%;
+  right: 51%;
+  bottom: 0;
+  background: #e91e63;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+.footer-col ul li a:hover:before,
+.footer-col ul li a:focus:before,
+.footer-col ul li a:active:before {
+  left: 0;
+  right: 0;
+}
+
+.intro-disney{
+    /* border: 2px solid white; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.outer-gif{
+    /* border: 2px solid white; */
+    width: 500px;
+    height: 490px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+.gif{
+    position: relative;
+    top: 50px;
+    left: -140px;
+
+}
+    </style>
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <img
+        src="./images/logo.png"
+        class="brand-logo"
+        alt="logo og disney clone"
+      />
+      <ul class="nav-links">
+        <li class="nav-items hvr-float-shadow12">
+          <a href="#">TV</a>
+        </li>
+        <li class="nav-items hvr-float-shadow12">
+          <a href="#">Movies</a>
+        </li>
+        <li class="nav-items hvr-float-shadow12">
+          <a href="#">Sports</a>
+        </li>
+        <li class="nav-items hvr-float-shadow12">
+          <a href="#">Premium</a>
+        </li>
+      </ul>
+      <div class="right-container">
+        <input type="text" class="search-box" placeholder="Search..." />
+        <button class="sub-btn">Subscribe</button>
+        <a href="login.html" class="login-link">Login</a>
+      </div>
+    </nav>
+    <div class="main-div">
+        <div class="intro-disney">
+            <div class="outer-gif">
+                <img class="gif" src="videos/intro4.gif" alt="" style="height: 400px;">
+            </div>
+        </div>
+        <div style="display: inline;">
+            <div class="wrapper">
+              <div class="title-text">
+                <div class="title login">Login Form</div>
+                <div class="title signup">Signup Form</div>
+              </div>
+              <div class="form-container">
+                <div class="slide-controls">
+                  <input type="radio" name="slide" id="login" checked />
+                  <input type="radio" name="slide" id="signup" />
+                  <label for="login" class="slide login">Login</label>
+                  <label for="signup" class="slide signup">Signup</label>
+                  <div class="slider-tab"></div>
+                </div>
+                <div class="form-inner">
+                  <form action="#" class="login">
+                    <div class="field">
+                      <input type="text" placeholder="Email Address" required />
+                    </div>
+                    <div class="field">
+                      <input type="password" placeholder="Password" required />
+                    </div>
+                    <div class="pass-link"><a href="#">Forgot password?</a></div>
+                    <div class="field btn">
+                      <div class="btn-layer"></div>
+                      <input type="submit" value="Login" />
+                    </div>
+                    <div class="signup-link">
+                      Not a member? <a href="">Signup now</a>
+                    </div>
+                  </form>
+                  <form action="#" class="signup">
+                    <div class="field">
+                      <input type="text" placeholder="Email Address" required />
+                    </div>
+                    <div class="field">
+                      <input type="password" placeholder="Password" required />
+                    </div>
+                    <div class="field">
+                      <input type="password" placeholder="Confirm password" required />
+                    </div>
+                    <div class="field btn">
+                      <div class="btn-layer"></div>
+                      <input type="submit" value="Signup" />
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Careers</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>View Website In</h4>
+              <ul>
+                <li>
+                  <table><tr>
+                      <td style="padding-bottom: 5px;"><i class="fa fa-solid fa-check" style="color: white;"></i></td>
+                      <td><a href="#">&nbsp;English</a></td>
+                  </tr></table>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Need Help</h4>
+              <ul>
+                <li><a href="#">Visit Help Center</a></li>
+                <li><a href="#">Share Feedback</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>Connect With us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fa fa-solid fa-facebook-f"></i></a>
+                <a href="#"><i class="fa fa-solid fa-twitter"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class = "footer-text">© 2023 STAR. All Rights Reserved.</div>
+        </div>
+     </footer>
+  </body>
+</html>

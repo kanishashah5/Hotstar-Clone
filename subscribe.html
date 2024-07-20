@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- C:/Users/priyam/Desktop/grp_projects/FSD-indi/Bootstrap-5/css/bootstrap.min.css
+    C:/Users/priyam/Desktop/grp_projects/FSD-indi/Bootstrap-5/css/bootstrap.min.css -->
+    <link rel="stylesheet" href="C:/Users/priyam/Desktop/grp_projects/FSD-indi/Bootstrap-5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="C:/Users/priyam/Desktop/grp_projects/FSD-indi/css/bootstrap.min.css">
+    <!-- <script src="C:/Users/priyam/Desktop/grp_projects/FSD-indi/js/bootstrap.min.js"></script> -->
+    <script src="C:/Users/priyam/Desktop/grp_projects/FSD-indi/Bootstrap-5/css/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style-subs.css">
+    <script src="main.js"></script>
+<!-- ✘ ✔ -->
+</head>
+
+<body>
+    <script>
+        function close() {
+            window.open('index.html', '_self');
+        }
+    </script>
+    <div class="main-div row  d-inline-block ">
+        <img src="logo.webp" alt="" class="logo col-md-6 d-inline ">
+        <a href="index.html" target="_self"><button type="button" class="close col-md-6 d-inline">&times;</button></a>
+    </div>
+    <div class="row container-fluid" style="margin-top: 20px;">
+        <div class="data-1 col-md-4 ">
+            <p class="display-1 "
+                style="color: burlywood;font-size: 40px;padding-left: 10px;font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+                Subscribe now </p>
+            <p class="data"> and start streaming your favourite shows!
+            </p>
+        </div>
+        <div class="col-md-8  d-inline plan">
+            <table>
+                <tr>
+                    <th>
+
+                    </th>
+                    <th>
+                        Mobile
+                    </th>
+                    <th>
+                        Super
+                    </th>
+                    <th>
+                        Premium
+                    </th>
+                </tr>
+                <tr class="text-center">
+                    <td style="border: 0px;">
+                        All content <br>(Movies,series,etc.)
+                    </td>
+                    <td class=" check">✓</td>
+                    <td class=" check">✓</td>
+                    <td class=" check">✓</td>
+                </tr>
+                <tr class="text-center">
+                    <td style="border: 0px;">
+                        Watch on TV Laptop
+                    </td>
+                    <td class=" check">✘</td>
+                    <td class=" check">✓</td>
+                    <td class=" check">✓</td>
+                </tr>
+                <tr class="text-center">
+                    <td style="border: 0px;">
+                        Ad free movies and <br> shows (Except sports)
+                    </td>
+                    <td class=" check">✘</td>
+                    <td class=" check">✘</td>
+                    <td class=" check">✓</td>
+                </tr>
+                
+                <tr class="text-center">
+                    <td style="border: 0px;padding-right: 15px;">
+                       No. of devices <br> that can be logged in
+                    </td>
+                    <td class=" check">1</td>
+                    <td class=" check">2</td>
+                    <td class=" check">3</td>
+                </tr>
+
+                <tr class="text-center">
+                    <td style="border: 0px;padding-right: 15px;">
+                      Max Video Quality
+                    </td>
+                    <td class=" check">HD <br>720p </td>
+                    <td class=" check">FULL HD <br>1080p </td>
+                    <td class=" check">4k <br>2160p </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row button-div">
+        <button class="col-md-4 button" id="Premium" onclick="tick('Premium')">Premium</button>
+        <button class="col-md-4 button" id="Super">Super</button>
+        <button class="col-md-4 button" id="Mobile">Mobile</button>
+    </div>
+    <div class="submit-div" align="right">
+        <button class="submit">Continue</button>
+    </div>
+</body>
+
+</html>
